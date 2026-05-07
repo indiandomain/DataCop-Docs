@@ -1,26 +1,297 @@
 <!DOCTYPE html>
-<html>
-<head><title>DataCop - Privacy Policy</title></head>
-<body style="font-family: Arial; padding: 40px; line-height: 1.6;">
-    <h1>Privacy Policy for DataCop</h1>
-    <p><strong>Effective Date: May 2026</strong></p>
-    <p>DataCop ("the Extension") is committed to protecting your privacy. This policy explains our data practices.</p>
-    
-    <h2>1. Data Collection</h2>
-    <p>DataCop follows a <strong>Zero-Data Collection</strong> policy. We do not collect, store, transmit, or sell any personally identifiable information, browsing history, or user data to any external servers.</p>
-    
-    <h2>2. Use of Permissions</h2>
-    <p>The Extension uses the following permissions solely for its core functionality:</p>
-    <ul>
-        <li><strong>Host Permission (<all_urls>):</strong> Used to detect and dismiss cookie banners on websites you visit.</li>
-        <li><strong>Scripting:</strong> Used to inject local logic to restore page scrolling after a banner is hidden.</li>
-        <li><strong>Storage:</strong> Used to save your local "Heavy Duty Mode" preference on your device.</li>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataCop — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0e10;
+    --surface: #141618;
+    --border: #1f2226;
+    --accent: #4ade80;
+    --accent-dim: rgba(74,222,128,0.12);
+    --text: #e8eaed;
+    --muted: #6b7280;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* grid lines background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 24px 100px;
+  }
+
+  /* header */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shield {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .header-text {}
+  .header-text .brand {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .header-text .doc-type {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+    margin-top: 2px;
+  }
+
+  /* zero data badge */
+  .zero-badge {
+    margin-bottom: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.25);
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+  }
+  .zero-badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* sections */
+  .section {
+    margin-bottom: 40px;
+    padding: 24px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .section p {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+
+  /* checklist */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+  .checklist li .ck {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    border-radius: 4px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .checklist li .ck svg {
+    width: 10px;
+    height: 10px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* contact */
+  .contact-row {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .footer .version {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 48px 16px 72px; }
+    .section { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="shield">🛡️</div>
+    <div class="header-text">
+      <div class="brand">DataCop</div>
+      <div class="doc-type">Privacy Policy</div>
+    </div>
+  </header>
+
+  <div class="zero-badge">
+    <span class="dot"></span>
+    Zero data collected — ever
+  </div>
+
+  <div class="section">
+    <div class="section-label">Overview</div>
+    <h2>We don't collect anything</h2>
+    <p>DataCop is a browser extension that automatically dismisses cookie consent banners. It runs entirely inside your browser and has no backend, no servers, and no external connections of any kind.</p>
+    <p>This policy exists because Chrome Web Store requires one — not because there is any data to describe.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Data collection</div>
+    <h2>What we do not collect</h2>
+    <ul class="checklist">
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Browsing history or visited URLs</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Page content or text</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cookies or local storage from websites</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Personal or identifiable information</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Crash reports or analytics</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Usage statistics or telemetry</li>
+      <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Any other data of any kind</li>
     </ul>
-    
-    <h2>3. Third-Party Sharing</h2>
-    <p>We do not share any data with third parties because we do not collect it in the first place.</p>
-    
-    <h2>4. Contact</h2>
-    <p>For questions, contact the developer via the Chrome Web Store support dashboard.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Technical</div>
+    <h2>How it works</h2>
+    <p>DataCop injects a content script into web pages via Chrome's declarative <code style="font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--accent-dim);padding:1px 5px;border-radius:3px;">content_scripts</code> API. The script scans the DOM for cookie banner elements and hides them using CSS. That's it.</p>
+    <p>No network requests are made. No data leaves your device. The extension does not communicate with any server, including our own.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Permissions</div>
+    <h2>Why we need host access</h2>
+    <p>The extension requests access to all URLs (<code style="font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--accent-dim);padding:1px 5px;border-radius:3px;">&lt;all_urls&gt;</code>) because cookie banners appear on every website. Without broad host access, the extension cannot run on the sites you visit. This permission is used solely to inject the banner-blocking script — nothing else.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Contact</div>
+    <h2>Questions</h2>
+    <p>If you have any questions about this privacy policy or the extension, you can reach us at:</p>
+    <div class="contact-row">admin@indiandomain.com</div>
+  </div>
+
+  <footer class="footer">
+    <span>Last updated: May 2026</span>
+    <span class="version">DataCop v4.0</span>
+    <span>Chrome Web Store · Manifest V3</span>
+  </footer>
+
+</div>
 </body>
 </html>
